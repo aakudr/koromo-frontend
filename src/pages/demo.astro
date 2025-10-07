@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import InteractiveCard from '../components/react/InteractiveCard';
+import ModalButton from '../components/react/ModalButton';
 ---
 
 <Layout title="React Component Demo">
@@ -41,6 +42,37 @@ import InteractiveCard from '../components/react/InteractiveCard';
           rating={4.9}
           client:load
         />
+      </div>
+
+      <!-- Contact Section -->
+      <div class="mt-16 bg-gradient-to-r from-blue-600 to-purple-700 rounded-2xl shadow-lg p-8 text-white text-center">
+        <h2 class="text-2xl font-bold mb-4">Love What You See?</h2>
+        <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+          These interactive components are just the beginning. Contact us to discuss your project 
+          or subscribe to stay updated with our latest React components and design patterns.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <ModalButton
+            formType="contact"
+            title="Discuss Your Project"
+            description="Tell us about your project and how we can help you build amazing user experiences."
+            buttonText="Start a Project"
+            buttonVariant="secondary"
+            buttonSize="lg"
+            buttonIcon="message"
+            client:load
+          />
+          <ModalButton
+            formType="feedback"
+            title="Share Your Feedback"
+            description="Help us improve our components by sharing your thoughts and suggestions."
+            buttonText="Give Feedback"
+            buttonVariant="outline"
+            buttonSize="lg"
+            buttonIcon="edit"
+            client:load
+          />
+        </div>
       </div>
 
       <div class="mt-16 bg-white rounded-lg shadow-sm border border-gray-200 p-8">

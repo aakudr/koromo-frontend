@@ -1,14 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ResponsiveGallery from '../components/react/ResponsiveGallery';
+import OrderForm from '../components/react/OrderForm';
+import ModalButton from '../components/react/ModalButton';
 import type { GalleryItem } from '../components/react/ResponsiveGallery';
 ---
 
 <Layout title="Responsive Gallery">
   <main class="min-h-screen bg-gray-50 py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <ResponsiveGallery
-        items={[
+      <div id="gallery-container">
+        <ResponsiveGallery
+          items={[
           {
             id: '1',
             title: 'Mountain Landscape',
@@ -17,7 +20,8 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
             category: 'Nature',
             tags: ['mountains', 'landscape', 'golden hour', 'nature'],
             date: '2024-01-15',
-            size: '2.4 MB'
+            size: '2.4 MB',
+            price: '$29.99'
           },
           {
             id: '2',
@@ -27,7 +31,8 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
             category: 'Architecture',
             tags: ['city', 'buildings', 'modern', 'urban'],
             date: '2024-01-14',
-            size: '1.8 MB'
+            size: '1.8 MB',
+            price: '$39.99'
           },
           {
             id: '3',
@@ -37,7 +42,8 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
             category: 'Nature',
             tags: ['ocean', 'waves', 'dramatic', 'seascape'],
             date: '2024-01-13',
-            size: '3.1 MB'
+            size: '3.1 MB',
+            price: '$24.99'
           },
           {
             id: '4',
@@ -57,7 +63,8 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
             category: 'Art',
             tags: ['abstract', 'painting', 'colorful', 'modern'],
             date: '2024-01-11',
-            size: '1.5 MB'
+            size: '1.5 MB',
+            price: '$49.99'
           },
           {
             id: '6',
@@ -107,7 +114,8 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
             category: 'Food',
             tags: ['food', 'gourmet', 'fresh', 'delicious'],
             date: '2024-01-06',
-            size: '2.1 MB'
+            size: '2.1 MB',
+            price: '$19.99'
           },
           {
             id: '11',
@@ -129,13 +137,46 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
             date: '2024-01-04',
             size: '1.3 MB'
           }
-        ]}
-        title="Photo Gallery"
-        showFilters={true}
-        showSearch={true}
-        showViewToggle={true}
-        client:load
-      />
+          ]}
+          title="Photo Gallery"
+          showFilters={true}
+          showSearch={true}
+          showViewToggle={true}
+          onOrder={(item) => window.openOrderForm(item)}
+          client:load
+        />
+      </div>
+
+      <!-- Contact Section -->
+      <div class="mt-16 bg-gradient-to-r from-green-600 to-green-700 rounded-2xl shadow-lg p-8 text-white text-center">
+        <h2 class="text-2xl font-bold mb-4">Need Help or Have Questions?</h2>
+        <p class="text-green-100 mb-6 max-w-2xl mx-auto">
+          Our team is here to help you find the perfect images for your project. 
+          Contact us for custom requests, licensing questions, or technical support.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <ModalButton
+            formType="contact"
+            title="Contact Our Team"
+            description="Get in touch with our support team for any questions or assistance."
+            buttonText="Contact Support"
+            buttonVariant="secondary"
+            buttonSize="lg"
+            buttonIcon="message"
+            client:load
+          />
+          <ModalButton
+            formType="newsletter"
+            title="Stay Updated"
+            description="Subscribe to our newsletter for new images, tips, and exclusive offers."
+            buttonText="Subscribe"
+            buttonVariant="outline"
+            buttonSize="lg"
+            buttonIcon="mail"
+            client:load
+          />
+        </div>
+      </div>
 
       {/* Features Section */}
       <div class="mt-16 bg-white rounded-lg shadow-sm border border-gray-200 p-8">
@@ -196,4 +237,62 @@ import type { GalleryItem } from '../components/react/ResponsiveGallery';
       </div>
     </div>
   </main>
+
+  <!-- Order Form Integration Script -->
+  <script>
+    import { createRoot } from 'react-dom/client';
+    import React, { useState } from 'react';
+    import OrderForm from '../components/react/OrderForm';
+    import type { GalleryItem } from '../components/react/ResponsiveGallery';
+
+    // Create order form container
+    const orderFormContainer = document.createElement('div');
+    document.body.appendChild(orderFormContainer);
+
+    // Order form state
+    let orderFormOpen = false;
+    let currentOrderItem = null;
+
+    // Function to open order form
+    window.openOrderForm = (item) => {
+      currentOrderItem = item;
+      orderFormOpen = true;
+      renderOrderForm();
+    };
+
+    // Function to close order form
+    window.closeOrderForm = () => {
+      orderFormOpen = false;
+      currentOrderItem = null;
+      renderOrderForm();
+    };
+
+    // Function to handle order submission
+    window.handleOrderSubmit = (orderData) => {
+      console.log('Order submitted for:', currentOrderItem?.title);
+      console.log('Customer data:', orderData);
+      
+      // Here you would typically send the data to your backend
+      // For demo purposes, we'll just show an alert
+      alert(`Order confirmed for ${currentOrderItem?.title}! Check console for details.`);
+    };
+
+    // Render order form
+    function renderOrderForm() {
+      const root = createRoot(orderFormContainer);
+      root.render(
+        React.createElement(OrderForm, {
+          isOpen: orderFormOpen,
+          onClose: window.closeOrderForm,
+          onSubmit: window.handleOrderSubmit,
+          productTitle: currentOrderItem?.title || 'Photo Print',
+          productPrice: currentOrderItem?.price || '$29.99',
+          productImage: currentOrderItem?.imageUrl
+        })
+      );
+    }
+
+    // Initial render
+    renderOrderForm();
+  </script>
 </Layout>

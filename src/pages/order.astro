@@ -1,0 +1,218 @@
+---
+import Layout from '../layouts/Layout.astro';
+import OrderButton from '../components/react/OrderButton';
+import SimpleButton from '../components/react/SimpleButton';
+---
+
+<Layout title="Order Form Demo">
+  <main class="min-h-screen bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Header -->
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Order Form Demo
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Interactive order form with validation, modal popup, and complete customer data collection.
+          Built with React, Tailwind CSS, and modern UX patterns.
+        </p>
+      </div>
+
+      <!-- Product Showcase -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+        <!-- Product Image -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=600&fit=crop"
+              alt="Premium Wireless Headphones"
+              class="w-full h-80 object-cover"
+            />
+            <div class="p-6">
+              <div class="flex items-center space-x-2 mb-2">
+                <div class="flex text-yellow-400">
+                  <span>★★★★★</span>
+                </div>
+                <span class="text-sm text-gray-600">(4.9/5 - 1,247 reviews)</span>
+              </div>
+              <h2 class="text-2xl font-bold text-gray-900 mb-2">
+                Premium Wireless Headphones
+              </h2>
+              <p class="text-gray-600 mb-4">
+                Experience crystal-clear sound with our premium wireless headphones. 
+                Features noise cancellation, 30-hour battery life, and premium comfort.
+              </p>
+              <div class="flex items-center space-x-4">
+                <span class="text-3xl font-bold text-green-600">$199.99</span>
+                <span class="text-lg text-gray-500 line-through">$299.99</span>
+                <span class="bg-red-100 text-red-800 px-2 py-1 rounded-full text-sm font-medium">
+                  Save 33%
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product Details & Order -->
+        <div class="space-y-6">
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Product Features</h3>
+            <ul class="space-y-3">
+              <li class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-gray-700">Active Noise Cancellation</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-gray-700">30-hour battery life</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-gray-700">Premium comfort padding</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-gray-700">Wireless & wired connectivity</span>
+              </li>
+              <li class="flex items-center space-x-3">
+                <div class="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span class="text-gray-700">Voice assistant integration</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Order Button -->
+          <div class="bg-white rounded-2xl shadow-lg p-8">
+            <OrderButton
+              productTitle="Premium Wireless Headphones"
+              productPrice="$199.99"
+              productImage="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=600&fit=crop"
+              variant="primary"
+              size="lg"
+              showTrustSignals={true}
+              client:load
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Different Button Variants -->
+      <div class="bg-white rounded-2xl shadow-lg p-8 mb-16">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+          Different Button Variants
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="text-center">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Primary Button</h3>
+            <OrderButton
+              productTitle="Sample Product"
+              productPrice="$99.99"
+              variant="primary"
+              size="md"
+              showTrustSignals={false}
+              client:load
+            />
+          </div>
+          <div class="text-center">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Secondary Button</h3>
+            <OrderButton
+              productTitle="Sample Product"
+              productPrice="$149.99"
+              variant="secondary"
+              size="md"
+              showTrustSignals={false}
+              client:load
+            />
+          </div>
+          <div class="text-center">
+            <h3 class="text-lg font-semibold text-gray-900 mb-4">Outline Button</h3>
+            <OrderButton
+              productTitle="Sample Product"
+              productPrice="$79.99"
+              variant="outline"
+              size="md"
+              showTrustSignals={false}
+              client:load
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Section -->
+      <div class="bg-white rounded-2xl shadow-lg p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-8 text-center">
+          Order Form Features
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Form Validation</h3>
+            <p class="text-gray-600">
+              Real-time validation with error messages and visual feedback for all form fields.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Responsive Design</h3>
+            <p class="text-gray-600">
+              Fully responsive modal that works perfectly on desktop, tablet, and mobile devices.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Trust Signals</h3>
+            <p class="text-gray-600">
+              Built-in trust signals including security badges, guarantees, and customer ratings.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Fast Processing</h3>
+            <p class="text-gray-600">
+              Optimized form processing with loading states and success confirmation.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">Security</h3>
+            <p class="text-gray-600">
+              SSL encryption and secure data handling for customer information protection.
+            </p>
+          </div>
+          <div class="text-center">
+            <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-2">User Experience</h3>
+            <p class="text-gray-600">
+              Intuitive design with smooth animations and clear visual feedback throughout the process.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

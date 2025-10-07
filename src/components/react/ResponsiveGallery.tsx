@@ -9,7 +9,8 @@ import {
   Filter,
   Grid3X3,
   List,
-  Search
+  Search,
+  ShoppingCart
 } from 'lucide-react';
 
 export interface GalleryItem {
@@ -22,6 +23,7 @@ export interface GalleryItem {
   isLiked?: boolean;
   date?: string;
   size?: string;
+  price?: string;
 }
 
 interface ResponsiveGalleryProps {
@@ -34,6 +36,7 @@ interface ResponsiveGalleryProps {
   onLike?: (item: GalleryItem) => void;
   onShare?: (item: GalleryItem) => void;
   onDownload?: (item: GalleryItem) => void;
+  onOrder?: (item: GalleryItem) => void;
   className?: string;
 }
 
@@ -50,6 +53,7 @@ const ResponsiveGallery: React.FC<ResponsiveGalleryProps> = ({
   onLike,
   onShare,
   onDownload,
+  onOrder,
   className = ""
 }) => {
   const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
@@ -109,6 +113,11 @@ const ResponsiveGallery: React.FC<ResponsiveGalleryProps> = ({
     e.stopPropagation();
     onDownload?.(item);
   }, [onDownload]);
+
+  const handleOrder = useCallback((item: GalleryItem, e: React.MouseEvent) => {
+    e.stopPropagation();
+    onOrder?.(item);
+  }, [onOrder]);
 
   const closeModal = useCallback(() => {
     setSelectedItem(null);
@@ -284,6 +293,15 @@ const ResponsiveGallery: React.FC<ResponsiveGalleryProps> = ({
                 >
                   <Download className="w-4 h-4" />
                 </button>
+                {item.price && (
+                  <button
+                    onClick={(e) => handleOrder(item, e)}
+                    className="p-2 rounded-full bg-white/90 text-gray-600 hover:bg-green-600 hover:text-white transition-all duration-200"
+                    aria-label="Order"
+                  >
+                    <ShoppingCart className="w-4 h-4" />
+                  </button>
+                )}
               </div>
             </div>
 
@@ -310,9 +328,14 @@ const ResponsiveGallery: React.FC<ResponsiveGalleryProps> = ({
                 <span className="inline-block px-2 py-1 text-xs font-medium bg-green-100 text-green-800 rounded-full">
                   {item.category}
                 </span>
-                {item.size && (
-                  <span className="text-xs text-gray-500">{item.size}</span>
-                )}
+                <div className="flex items-center space-x-2">
+                  {item.price && (
+                    <span className="text-sm font-bold text-green-600">{item.price}</span>
+                  )}
+                  {item.size && (
+                    <span className="text-xs text-gray-500">{item.size}</span>
+                  )}
+                </div>
               </div>
               
               {item.tags.length > 0 && (
