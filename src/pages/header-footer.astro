@@ -1,0 +1,55 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/react/Header';
+import Footer from '../components/react/Footer';
+---
+
+<!-- Page demonstrates fixed header and footer with arbitrary content -->
+<Layout title="Koromo — Header & Footer Demo">
+  <Header companyName="Koromo" />
+
+  <!-- Add top padding so content won't be hidden under fixed header -->
+  <main class="pt-20 pb-24 bg-gray-50 min-h-screen">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-black mb-4">Header & Footer Demo</h1>
+      <p class="text-gray-600 mb-6">Ниже размещено «тупо любое» наполнение страницы — блоки, карточки и длинный контент, чтобы посмотреть поведение закреплённой шапки и подвала при скролле.</p>
+
+      <div class="space-y-6">
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <h2 class="text-xl font-semibold text-black mb-2">Секция контента</h2>
+          <p class="text-gray-700">Это примерный текст, имитирующий реальный контент. Можно добавить изображения, списки и таблицы — всё будет отображаться под фиксированной шапкой.</p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+            <h3 class="text-lg font-medium text-black mb-2">Карточка 1</h3>
+            <p class="text-gray-700">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
+          </div>
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+            <h3 class="text-lg font-medium text-black mb-2">Карточка 2</h3>
+            <p class="text-gray-700">Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+          </div>
+        </div>
+
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">
+          <h2 class="text-xl font-semibold text-black mb-2">Длинный контент</h2>
+          <p class="text-gray-700">{Array.from({length:20}).map((_,i)=> (
+            <span key={i}>Это строка наполнителя — тестовый текст для демонстрации прокрутки. </span>
+          ))}</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Блок A</div>
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Блок B</div>
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Блок C</div>
+        </div>
+
+        <div class="h-96 bg-white border border-gray-200 rounded-lg p-6 shadow-sm flex items-center justify-center text-gray-400">
+          Длинный контейнер для прокрутки
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer companyName="Koromo" />
+</Layout>

@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/react/Header';
+---
+
+<!-- Ensure page content is padded to account for the fixed header -->
+<Layout title="Koromo — Header Demo">
+  <Header companyName="Koromo" />
+
+  <main class="pt-20 pb-16">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h1 class="text-3xl font-bold text-black mb-4">Шапка — демо</h1>
+      <p class="text-gray-600 mb-8">Фиксированная шапка теперь видна вверху страницы. Ниже — пример содержимого страницы.</p>
+
+      <section class="space-y-6">
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm transition-transform duration-300 motion-safe:hover:scale-102">
+          <h2 class="text-xl font-semibold text-black mb-2">О продукте</h2>
+          <p class="text-gray-700">Здесь можно разместить информацию о продукции Koromo — описание, преимущества и CTA.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</div>
+          <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Praesent libero. Sed cursus ante dapibus diam. Sed nisi.</div>
+        </div>
+
+        <div class="h-96 bg-gray-50 rounded-lg border border-gray-200 flex items-center justify-center">
+          <p class="text-gray-400">Длинный контент — прокрутите страницу, шапка остаётся закрепленной.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+</Layout>

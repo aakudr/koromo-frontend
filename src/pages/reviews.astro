@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Reviews from '../components/react/Reviews';
+
+const reviews = [
+  {
+    id: 'r1',
+    name: 'Иван Петров',
+    role: 'Прораб',
+    avatarUrl: 'https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=400&h=400&fit=crop&q=80',
+    avatarAlt: 'Иван Петров',
+    text: 'Отличный инструмент — сэкономил мне время и силы на стройке. Очень доволен качеством и надежностью.'
+  },
+  {
+    id: 'r2',
+    name: 'Елена Сидорова',
+    role: 'Архитектор',
+    avatarUrl: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&q=80',
+    avatarAlt: 'Елена Сидорова',
+    text: 'Прекрасное решение для мелких подрядчиков. Удобно в использовании и надежно в работе.'
+  },
+  {
+    id: 'r3',
+    name: 'Алексей Морозов',
+    role: 'Мастер',
+    avatarUrl: 'https://images.unsplash.com/photo-1545996124-6b4a2d47f6f0?w=400&h=400&fit=crop&q=80',
+    avatarAlt: 'Алексей Морозов',
+    text: 'Продукт превзошёл ожидания: прост в обращении и помогает завершать задачи быстрее.'
+  },
+  {
+    id: 'r4',
+    name: 'Ольга Кузнецова',
+    role: 'Дизайнер интерьера',
+    avatarUrl: 'https://images.unsplash.com/photo-1545996124-ec7d2d0f1b4a?w=400&h=400&fit=crop&q=80',
+    avatarAlt: 'Ольга Кузнецова',
+    text: 'Очень стильный и функциональный продукт. Рекомендую всем коллегам в строительной сфере.'
+  },
+  {
+    id: 'r5',
+    name: 'Николай Иванов',
+    role: 'Монтажник',
+    avatarUrl: 'https://images.unsplash.com/photo-1544005310-5b0b3b2c5d6b?w=400&h=400&fit=crop&q=80',
+    avatarAlt: 'Николай Иванов',
+    text: 'Надежный инструмент, который помогает мне каждый день. Простой и понятный интерфейс.'
+  },
+  {
+    id: 'r6',
+    name: 'Мария Лебедева',
+    role: 'Проектировщик',
+    avatarUrl: 'https://images.unsplash.com/photo-1545996124-0f4c3f6e7a1b?w=400&h=400&fit=crop&q=80',
+    avatarAlt: 'Мария Лебедева',
+    text: 'Отличная поддержка и качественный продукт. Использую постоянно в проектах.'
+  }
+];
+---
+
+<Layout>
+  <main>
+    <Reviews reviews={reviews} />
+  </main>
+</Layout>

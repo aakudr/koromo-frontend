@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/react/Footer';
+---
+
+<Layout title="Koromo — Footer Demo">
+  <main class="min-h-screen bg-gray-50 pt-8">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-24">
+      <h1 class="text-3xl font-bold text-black mb-4">Footer — демо</h1>
+      <p class="text-gray-600 mb-8">Пример страницы, демонстрирующей подвал сайта. Скрольте вниз, чтобы увидеть футер.</p>
+
+      <div class="space-y-6">
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Контент секции 1</div>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm">Контент секции 2</div>
+        <div class="bg-white border border-gray-200 rounded-lg p-6 shadow-sm h-96">Длинный контент для демонстрации прокрутки</div>
+      </div>
+    </div>
+
+    <Footer companyName="Koromo" />
+  </main>
+</Layout>
