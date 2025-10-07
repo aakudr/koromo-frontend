@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import InteractiveCard from '../components/react/InteractiveCard';
+---
+
+<Layout title="React Component Demo">
+  <main class="min-h-screen bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h1 class="text-4xl font-bold text-gray-900 mb-4">
+          Interactive React Component
+        </h1>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          A responsive React component built with Tailwind CSS, featuring animations, 
+          accessibility, and Lucide React icons. Uses only white, black, gray, and green colors.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <InteractiveCard
+          title="Sample Card 1"
+          description="This is the first sample card demonstrating the interactive features including hover animations, focus states, and accessibility features."
+          imageUrl="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
+          rating={4.8}
+          client:load
+        />
+        
+        <InteractiveCard
+          title="Sample Card 2"
+          description="Another example card showing different content and interactions. Notice the smooth transitions and hover effects."
+          imageUrl="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop"
+          rating={4.2}
+          isLiked={true}
+          client:load
+        />
+        
+        <InteractiveCard
+          title="Sample Card 3"
+          description="The third card demonstrates the responsive design and how the component adapts to different screen sizes."
+          imageUrl="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=400&h=300&fit=crop"
+          rating={4.9}
+          client:load
+        />
+      </div>
+
+      <div class="mt-16 bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Features Demonstrated</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Styling & Animations</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Tailwind CSS with custom color palette
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Hover animations and transitions
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Focus states and keyboard navigation
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Responsive design patterns
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Accessibility</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                ARIA labels and roles
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Keyboard navigation support
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Focus management
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Screen reader compatibility
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
