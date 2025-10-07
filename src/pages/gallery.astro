@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ResponsiveGallery from '../components/react/ResponsiveGallery';
+import type { GalleryItem } from '../components/react/ResponsiveGallery';
+---
+
+<Layout title="Responsive Gallery">
+  <main class="min-h-screen bg-gray-50 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <ResponsiveGallery
+        items={[
+          {
+            id: '1',
+            title: 'Mountain Landscape',
+            description: 'A breathtaking view of snow-capped mountains during golden hour. The perfect blend of nature\'s beauty and tranquility.',
+            imageUrl: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=600&fit=crop',
+            category: 'Nature',
+            tags: ['mountains', 'landscape', 'golden hour', 'nature'],
+            date: '2024-01-15',
+            size: '2.4 MB'
+          },
+          {
+            id: '2',
+            title: 'Urban Architecture',
+            description: 'Modern cityscape featuring contemporary buildings and urban design elements.',
+            imageUrl: 'https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=600&fit=crop',
+            category: 'Architecture',
+            tags: ['city', 'buildings', 'modern', 'urban'],
+            date: '2024-01-14',
+            size: '1.8 MB'
+          },
+          {
+            id: '3',
+            title: 'Ocean Waves',
+            description: 'Powerful ocean waves crashing against rocky shores, captured in dramatic lighting.',
+            imageUrl: 'https://images.unsplash.com/photo-1505142468610-359e7d316be0?w=800&h=600&fit=crop',
+            category: 'Nature',
+            tags: ['ocean', 'waves', 'dramatic', 'seascape'],
+            date: '2024-01-13',
+            size: '3.1 MB'
+          },
+          {
+            id: '4',
+            title: 'Forest Path',
+            description: 'A serene walking path through an ancient forest, dappled with sunlight filtering through the canopy.',
+            imageUrl: 'https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=800&h=600&fit=crop',
+            category: 'Nature',
+            tags: ['forest', 'path', 'trees', 'peaceful'],
+            date: '2024-01-12',
+            size: '2.7 MB'
+          },
+          {
+            id: '5',
+            title: 'Abstract Art',
+            description: 'Contemporary abstract painting with bold colors and dynamic brushstrokes.',
+            imageUrl: 'https://images.unsplash.com/photo-1541961017774-22349e4a1262?w=800&h=600&fit=crop',
+            category: 'Art',
+            tags: ['abstract', 'painting', 'colorful', 'modern'],
+            date: '2024-01-11',
+            size: '1.5 MB'
+          },
+          {
+            id: '6',
+            title: 'Desert Sunset',
+            description: 'Stunning desert landscape during sunset with warm orange and pink hues painting the sky.',
+            imageUrl: 'https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?w=800&h=600&fit=crop',
+            category: 'Nature',
+            tags: ['desert', 'sunset', 'warm colors', 'landscape'],
+            date: '2024-01-10',
+            size: '2.9 MB'
+          },
+          {
+            id: '7',
+            title: 'Vintage Car',
+            description: 'Classic vintage automobile in pristine condition, showcasing timeless automotive design.',
+            imageUrl: 'https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=800&h=600&fit=crop',
+            category: 'Automotive',
+            tags: ['vintage', 'car', 'classic', 'automobile'],
+            date: '2024-01-09',
+            size: '2.2 MB'
+          },
+          {
+            id: '8',
+            title: 'Coffee Shop Interior',
+            description: 'Cozy coffee shop with warm lighting, wooden furniture, and inviting atmosphere.',
+            imageUrl: 'https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?w=800&h=600&fit=crop',
+            category: 'Interior',
+            tags: ['coffee', 'interior', 'cozy', 'wooden'],
+            date: '2024-01-08',
+            size: '1.9 MB'
+          },
+          {
+            id: '9',
+            title: 'Space Galaxy',
+            description: 'Stunning view of a distant galaxy with swirling stars and cosmic dust.',
+            imageUrl: 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=800&h=600&fit=crop',
+            category: 'Space',
+            tags: ['galaxy', 'stars', 'cosmic', 'universe'],
+            date: '2024-01-07',
+            size: '4.2 MB'
+          },
+          {
+            id: '10',
+            title: 'Food Photography',
+            description: 'Artfully arranged gourmet dish with fresh ingredients and professional food styling.',
+            imageUrl: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ca4b?w=800&h=600&fit=crop',
+            category: 'Food',
+            tags: ['food', 'gourmet', 'fresh', 'delicious'],
+            date: '2024-01-06',
+            size: '2.1 MB'
+          },
+          {
+            id: '11',
+            title: 'Portrait Photography',
+            description: 'Professional portrait with natural lighting and expressive character.',
+            imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=600&fit=crop',
+            category: 'Portrait',
+            tags: ['portrait', 'person', 'professional', 'natural'],
+            date: '2024-01-05',
+            size: '1.7 MB'
+          },
+          {
+            id: '12',
+            title: 'Technology Interface',
+            description: 'Modern digital interface design with clean lines and intuitive user experience.',
+            imageUrl: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?w=800&h=600&fit=crop',
+            category: 'Technology',
+            tags: ['interface', 'digital', 'modern', 'design'],
+            date: '2024-01-04',
+            size: '1.3 MB'
+          }
+        ]}
+        title="Photo Gallery"
+        showFilters={true}
+        showSearch={true}
+        showViewToggle={true}
+        client:load
+      />
+
+      {/* Features Section */}
+      <div class="mt-16 bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+        <h2 class="text-2xl font-bold text-gray-900 mb-6">Gallery Features</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Responsive Design</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Adaptive grid layouts
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Mobile-first approach
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Touch-friendly interactions
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">Advanced Features</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Search and filtering
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Modal lightbox view
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Grid and list views
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-gray-900 mb-3">User Experience</h3>
+            <ul class="space-y-2 text-gray-600">
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Keyboard navigation
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Smooth animations
+              </li>
+              <li class="flex items-center">
+                <span class="w-2 h-2 bg-green-500 rounded-full mr-3"></span>
+                Accessibility support
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>
